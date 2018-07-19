@@ -1,20 +1,6 @@
-<<<<<<< HEAD
 // let email = document.getElementById('email').value;
 // let password = document.getElementById('password').value;
  function register(){// CREO FUNCION QUE ME PERMITE HACER LE REGISTRO DE USURAIOS 
-=======
-let config = {
-  apiKey: "AIzaSyAyU-144GII0BR3pdmRcq70rWM_9-fKthY",
-  authDomain: "socialnetwork-proyect.firebaseapp.com",
-  databaseURL: "https://socialnetwork-proyect.firebaseio.com",
-  projectId: "socialnetwork-proyect",
-  storageBucket: "socialnetwork-proyect.appspot.com",
-  messagingSenderId: "1041163805568"
-};
-firebase.initializeApp(config);
-
-function register(){
->>>>>>> 3cb2037fe515a449717750c5894696b96c9b01f7
   let email = document.getElementById('email').value;
   let password = document.getElementById('password').value;
   firebase.auth().createUserWithEmailAndPassword(email, password)
