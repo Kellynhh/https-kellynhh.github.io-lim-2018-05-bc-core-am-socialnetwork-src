@@ -43,7 +43,7 @@ window.onload =() =>{
   firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     console.log('no existe usuario');
-    aparece(user);
+    // aparece();
     // User is signed in.
     let displayName = user.displayName;
     let email = user.email;
@@ -55,12 +55,14 @@ window.onload =() =>{
     content.innerHTML = `Bienvenida ${user.displayName}`;
   } else {
     // User is signed out.
-    console.log('no existe usuario');  
+    console.log('no existe usuario');
+    contenido.innerHTML = `
+  `
   }
 });
 }
-//}
-//observador();
+observador();
+// let contenido = document.getElementById('content');
 
 function aparece(user){
   let user = user;
@@ -132,15 +134,18 @@ facebook.addEventListener('click', () => {
 //  });
 // }
 
-function gmail(){
+let gmail = document.getElementById('gmail');
+gmail.addEventListener('click', ()=> {
   let provider = new firebase.auth.GoogleAuthProvider();
   firebase.auth().signInWithPopup(provider).then((result)=> {
     var token = result.credential.accessToken;
     var user = result.user;
+    console.log(user)
+    contenido.innerHTML = `Bienvenido`
   }).catch((error) => {
     console.log(error.code);
     console.log(error.message);
     console.log(error.email);
     console.log(error.credential);
 });
-}
+})
