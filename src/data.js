@@ -38,12 +38,12 @@ function ingreso() {
   console.log('Error en firebase >'+ errorMessage);
   });
 }
-
-function observador(){
+window.onload =() =>{
+  //function observador(){
   firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     console.log('no existe usuario');
-    aparece();
+    aparece(user);
     // User is signed in.
     let displayName = user.displayName;
     let email = user.email;
@@ -52,16 +52,15 @@ function observador(){
     let isAnonymous = user.isAnonymous;
     let uid = user.uid;
     let providerData = user.providerData;
-    // ...
+    content.innerHTML = `Bienvenida ${user.displayName}`;
   } else {
     // User is signed out.
-    console.log('no existe usuario');
-    content.innerHTML = `
-  `
+    console.log('no existe usuario');  
   }
 });
 }
-observador();
+//}
+//observador();
 
 function aparece(user){
   let user = user;
