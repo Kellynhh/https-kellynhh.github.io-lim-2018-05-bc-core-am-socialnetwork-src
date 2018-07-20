@@ -1,4 +1,4 @@
-let config = {
+var config = {
   apiKey: "AIzaSyAyU-144GII0BR3pdmRcq70rWM_9-fKthY",
   authDomain: "socialnetwork-proyect.firebaseapp.com",
   databaseURL: "https://socialnetwork-proyect.firebaseio.com",
@@ -28,14 +28,14 @@ function ingreso() {
   let password2 = document.getElementById('password2').value;
   firebase.auth().signInWithEmailAndPassword(email2, password2)
   .then(()=>{
-    console.log('Usuario con login exitoso');
+    alert('Usuario con login exitoso');
   })
   .catch((error) => {
   // Handle Errors here.
   let errorCode = error.code;
   let errorMessage = error.message;
-  console.log('Error en firebase >'+ errorCode);
-  console.log('Error en firebase >'+ errorMessage);
+  alert('Error en firebase >'+ errorCode);
+  alert('Error en firebase >'+ errorMessage);
   });
 }
 window.onload =() =>{
@@ -52,16 +52,16 @@ window.onload =() =>{
     let isAnonymous = user.isAnonymous;
     let uid = user.uid;
     let providerData = user.providerData;
-    content.innerHTML = `Bienvenida ${user.displayName}`;
+    guardaDatos(user)
+    // ...
   } else {
     // User is signed out.
     console.log('no existe usuario');
-    contenido.innerHTML = `
-  `
+    content.innerHTML = ``
   }
 });
 }
-observador();
+//observador();
 // let contenido = document.getElementById('content');
 
 function aparece(user){
@@ -108,9 +108,12 @@ facebook.addEventListener('click', () => {
   provider.setCustomParameters({
   'display': 'popup'
   });
+
   firebase.auth().signInWithPopup(provider)
     .then((result) => {
-      console.log('has iniciado sesion');
+      console.log(result);
+      guardaDatos(result.user)
+      $('#content').append("<img src='"+result.user.photoURL+ "'/>")
   }).catch((error)=> {
     console.log(error.code);
     console.log(error.message);
@@ -118,21 +121,7 @@ facebook.addEventListener('click', () => {
     console.log(error.credential);
  });
 })
-// function facebook(){
-//   let provider = new firebase.auth.FacebookAuthProvider();
-//   provider.setCustomParameters({
-//   'display': 'popup'
-//   });
-//   firebase.auth().signInWithPopup(provider)
-//     .then((result) => {
-//       console.log('has iniciado sesion');
-//   }).catch((error)=> {
-//     console.log(error.code);
-//     console.log(error.message);
-//     console.log(error.email);
-//     console.log(error.credential);
-//  });
-// }
+
 
 let gmail = document.getElementById('gmail');
 gmail.addEventListener('click', ()=> {
@@ -141,7 +130,8 @@ gmail.addEventListener('click', ()=> {
     var token = result.credential.accessToken;
     var user = result.user;
     console.log(user)
-    contenido.innerHTML = `Bienvenido`
+    guardaDatos(result.user)
+    $('#content').append("<img src='"+result.user.photoURL+ "'/>")
   }).catch((error) => {
     console.log(error.code);
     console.log(error.message);
@@ -149,3 +139,15 @@ gmail.addEventListener('click', ()=> {
     console.log(error.credential);
 });
 })
+//funcion para guardar a los usuarios autenticados en la base de datos
+function guardaDatos(user){
+  let usuario = {
+    uid: user.uid,
+    nombre: user.displayName,
+    email: user.email,
+    foto: user.photoURL,
+    emailVerified: user.emailVerified
+  }
+  firebase.database().ref('angie/' + user.uid)
+  .set(usuario)
+}
