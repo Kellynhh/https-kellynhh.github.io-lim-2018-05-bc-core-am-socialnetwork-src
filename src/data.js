@@ -8,6 +8,8 @@ var config = {
 };
 firebase.initializeApp(config);
 
+let userProfile = {};
+
 function register(){
   let email = document.getElementById('email').value;
   let password = document.getElementById('password').value;
@@ -42,7 +44,11 @@ window.onload =() =>{
   //function observador(){
   firebase.auth().onAuthStateChanged((user) => {
   if (user) {
+<<<<<<< HEAD
     console.log('usuario registrado');
+=======
+    console.log('existe usuario');
+>>>>>>> 9b2202153054fdfa45c0d5f0b56fcd08be359f5a
     // aparece();
     // User is signed in.
     let displayName = user.displayName;
@@ -52,13 +58,22 @@ window.onload =() =>{
     let isAnonymous = user.isAnonymous;
     let uid = user.uid;
     let providerData = user.providerData;
+<<<<<<< HEAD
     let newpost= user.post;
+=======
+    content.innerHTML = ` bienvenido ${user.displayName}`
+>>>>>>> 9b2202153054fdfa45c0d5f0b56fcd08be359f5a
     guardaDatos(user)
     // ...
   } else {
     // User is signed out.
     console.log('no existe usuario');
+<<<<<<< HEAD
     content.innerHTML = ``
+=======
+    content.innerHTML = `
+  `
+>>>>>>> 9b2202153054fdfa45c0d5f0b56fcd08be359f5a
   }
 });
 }
@@ -67,7 +82,7 @@ window.onload =() =>{
 
 function aparece(user){
   let user = user;
-  let contenido = document.getElementById('content');
+  // let contenido = document.getElementById('content');
   if (user.emailVerified) {
     content.innerHTML = `
     <div class="container mt-5">
@@ -151,4 +166,14 @@ function guardaDatos(user){
   }
   firebase.database().ref('angie/' + user.uid)
   .set(usuario)
+
+  userProfile = getUserProfile(user); //json
+}
+
+const getUserProfile = (user) => {
+  return {
+    uid: user.uid,
+    nombre: user.displayName,
+    foto: user.photoURL
+  };
 }
