@@ -42,7 +42,7 @@ window.onload =() =>{
   //function observador(){
   firebase.auth().onAuthStateChanged((user) => {
   if (user) {
-    console.log('no existe usuario');
+    console.log('usuario registrado');
     // aparece();
     // User is signed in.
     let displayName = user.displayName;
@@ -52,6 +52,7 @@ window.onload =() =>{
     let isAnonymous = user.isAnonymous;
     let uid = user.uid;
     let providerData = user.providerData;
+    let newpost= user.post;
     guardaDatos(user)
     // ...
   } else {
