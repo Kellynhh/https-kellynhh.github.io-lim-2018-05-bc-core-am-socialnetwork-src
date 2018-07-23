@@ -44,11 +44,7 @@ window.onload =() =>{
   //function observador(){
   firebase.auth().onAuthStateChanged((user) => {
   if (user) {
-<<<<<<< HEAD
-    console.log('usuario registrado');
-=======
     console.log('existe usuario');
->>>>>>> 9b2202153054fdfa45c0d5f0b56fcd08be359f5a
     // aparece();
     // User is signed in.
     let displayName = user.displayName;
@@ -58,22 +54,14 @@ window.onload =() =>{
     let isAnonymous = user.isAnonymous;
     let uid = user.uid;
     let providerData = user.providerData;
-<<<<<<< HEAD
-    let newpost= user.post;
-=======
     content.innerHTML = ` bienvenido ${user.displayName}`
->>>>>>> 9b2202153054fdfa45c0d5f0b56fcd08be359f5a
     guardaDatos(user)
     // ...
   } else {
     // User is signed out.
     console.log('no existe usuario');
-<<<<<<< HEAD
-    content.innerHTML = ``
-=======
     content.innerHTML = `
   `
->>>>>>> 9b2202153054fdfa45c0d5f0b56fcd08be359f5a
   }
 });
 }

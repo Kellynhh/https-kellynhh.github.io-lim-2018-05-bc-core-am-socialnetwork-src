@@ -4,6 +4,31 @@
    cursor: pointer;
    width: 80px;
 } */
+#wrap-preload{
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity .5s ease,visibility .5 ease;
+}
+
+#wrap-preload.close{
+  opacity: 0;
+  visibility: hidden;
+}
+
+#wrap-preload > img.gif{
+  position: absolute;
+  top: 40%;
+  left:40%;
+  transform:translated3d(-50%,-50%,0);
+}
+
 
 .btn-social{
   width:50px;
@@ -13,8 +38,4 @@
 
    width: 15%;
 }
-
-
-
-
 
