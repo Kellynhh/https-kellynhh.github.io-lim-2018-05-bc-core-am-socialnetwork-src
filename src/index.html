@@ -9,14 +9,10 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
-  </head>
-  
-
+  </head>  
   <br>
-
-  <header>
-    
-    <!--Creando carrusel de imagenes -->
+  <header>   
+    <!--Creando carrusel de imagenes 
     <div id="carouselExampleFade" class="carrusel"  data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
@@ -49,95 +45,84 @@
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
         </a>
-      </div>
+      </div>-->
   </header>
   <body>
-      <div id="wrap-preload">
-          <img src="../imagenes/sun.gif" alt="gif" class="gif">
-        </div>
-   
-    
-
+    <!--Implementacion del gif de precarga-->
+    <div id="wrap-preload">
+      <img src="../imagenes/sun.gif" alt="gif" class="gif">
+    </div>
+   <!--Implementando barra de ingreso usando boostrap -->      
     <div class="contenido mt-3">
       <nav class="navbar navbar-light" id="navbar" style="background-color: #97E34B;">
-      <div id="content"></div>
-      <img src="../imagenes/2.jpg" >
-        <a class="navbar-brand">Ambientalist Lover</a>
         <div id="content"></div>
-        <div class="form-inline">
-          <input type="text" id="email2" placeholder="Ingresa e-mail" class="form-control mr-sm-2">
-          <input type="password" id="password2" placeholder="Ingresa Contraseña" class="form-control mr-sm-2">
-          <button onclick="ingreso()" class="btn btn-outline-success my-2 my-sm-0">Acceder</button>
-          <button class="btn btn-outline-success my-2 my-sm-0 ml-2" data-toggle="modal" data-target="#exampleModal">Registrate</button>
-        </div>
+          <img src="../imagenes/2.jpg" >
+            <a class="navbar-brand">Ambientalist Lover</a>
+              <div id="content"></div>
+                <div class="form-inline">
+                  <input type="text" id="email2" placeholder="Ingresa e-mail" class="form-control mr-sm-2">
+                  <input type="password" id="password2" placeholder="Ingresa Contraseña" class="form-control mr-sm-2">
+                  <button onclick="ingreso()" class="btn btn-outline-success my-2 my-sm-0">Acceder</button>
+                  <button class="btn btn-outline-success my-2 my-sm-0 ml-2" data-toggle="modal" data-target="#exampleModal">Registrate</button>
+               </div>
       </nav>
     </div>
     </header>
-    <!-- Modal -->
+
+    <!-- Modal de registro implementado con boostrap -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Formulario de registro</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
+            <span aria-hidden="true">&times;</span>
             </button>
           </div>
+
           <div class="modal-body">
             <input type="text" id="email" placeholder="Ingresa e-mail" class="form-control mr-sm-2">
             <div class="mt-2"></div>
             <input type="password" id="password" placeholder="Ingresa Contraseña" class="form-control mr-sm-2">
             <br>
             <p>--------- o registrate con:----------</p>
-
             <button type="button" class="btn btn-secondary btn-social" style="background-color: #F7FAF9" id="facebook"><img class="w-100" src="../src/image/facebook.png"/></button>
-            <!-- <button type="button" id="loginFacebook"onclink="facebook()"class="btn btn-secondary" data-dismiss="modal">Facebook</button> -->
             <button type="button" class="btn btn-secondary btn-social" style="background-color: #F7FAF9" id="gmail"><img class="w-100" src="../src/image/gmail.png"/></button>
-
           </div>
+
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
             <button onclick="register()" type="button" class="btn btn-primary">Guardar</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>  
           </div>
         </div>
       </div>
     </div>
      <div id="content"></div> 
-
-    <br>
-
-
     <br>
     
-    <div class="container-fluid">
-        <div class="row">
-        <div class="card col" style="width: 18rem;">
-            <img class="card-img-top" src="../imagenes/noticia1.1.jpg" alt="Card image cap">
+    <!--Implementando seccion de notocias con boostrap-->
+    <div class="container">
+      <div class="row">
+        <div class="card col-3" style="width: 10rem;">
+          <img class="card-img-top" src="../imagenes/noticia1.1.jpg" alt="Card image cap">
             <div class="card-body">
               <p class="card-text">Luis Valero, gerente de la Asociación Sostenibilidad y Energías Renovables, subraya que las oportunidades deben enfocarse hacia la reducción de la demanda, la minimización de costes de suministro, la reducción de las emisiones contaminantes y la maximización de la seguridad energética: “En definitiva, potenciar el ahorro energético”.</p>
-            </div> <br>
-
-            <img class="card-img-top" src="../imagenes/biomasa.jpg" alt="Card image cap">
+            </div> 
+          <br>
+          <img class="card-img-top" src="../imagenes/biomasa.jpg" alt="Card image cap">
             <div class="card-body">
               <p class="card-text">Bio masa</p>
             </div>
-          </div>
-  
-  
-        <div class="form-group col-9">
-            <label for="comment">Tu comentario aqui:</label>
-            <textarea class="form-control" rows="5" id="comment" placeholder="Compartenos tu nueva idea!"></textarea>
-            <button class="btn btn-primary"  id= "publicar" type="button">Publicar</button>
-            <button class="btn btn-primary" type="button">Editar</button>
-           <button class="btn btn-primary" type="button">Eliminar</button>
-          </div>
-            
-    </div>
-   <!-- 
-  <script src="main.js"></script>
-  <script src="data.js"></script>-->
-
-
+        </div>
+    
+        <div class="form-group col-6">
+          <label for="comment">Tu comentario aqui:</label>
+          <textarea class="form-control" rows="5" id="comment" placeholder="Compartenos tu nueva idea!"></textarea>
+          <button class="btn btn-primary"  id= "publicar" type="button">Publicar</button>
+          <button class="btn btn-primary" type="button">Editar</button>
+          <button class="btn btn-primary" type="button">Eliminar</button>
+        </div>      
+      </div>   
 
     <div id="divPostsContainer" class="container mt-5">
       <div id="divPostsArea">
