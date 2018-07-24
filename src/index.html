@@ -81,11 +81,14 @@
           </div>
 
           <div class="modal-body">
-            <input type="text" id="email" placeholder="Ingresa e-mail" class="form-control mr-sm-2">
-            <div class="mt-2"></div>
-            <input type="password" id="password" placeholder="Ingresa Contraseña" class="form-control mr-sm-2">
+            <input type="text" id="name" placeholder="Nombre" class="form-control mr-sm-2 mt-2">
+            <input type="text" id="lastName" placeholder="Apellido" class="form-control mr-sm-2 mt-2">
+            <input type="text" id="email" placeholder="Ingresa e-mail" class="form-control mr-sm-2 mt-2">
+            <input type="password" id="password" placeholder="Ingresa Contraseña" class="form-control mr-sm-2 mt-2">
+            <input type="password" id="passwordVerification" placeholder="Ingresa Contraseña nuevamente" class="form-control mr-sm-2 mt-2">
             <br>
-            <p>--------- o registrate con:----------</p>
+            <p>--------- Registrate con:----------</p>
+
             <button type="button" class="btn btn-secondary btn-social" style="background-color: #F7FAF9" id="facebook"><img class="w-100" src="../src/image/facebook.png"/></button>
             <button type="button" class="btn btn-secondary btn-social" style="background-color: #F7FAF9" id="gmail"><img class="w-100" src="../src/image/gmail.png"/></button>
           </div>
@@ -128,7 +131,7 @@
       <div id="divPostsArea">
         <h2><strong>Ideas para compartir</strong></h2>
         <textarea name="txtPost" id="txtPost" cols="100" rows="5" placeholder="¿Que ideas tienes?"></textarea>
-        <button id="btnPublicar" class="btn btn-info" onClick="guardar()" >Publicar</button>
+        <button id="btnPublicar" class="btn btn-info" onClick="guardar()">Publicar</button>
     </div>
     <div id="divPosts"></div>
 

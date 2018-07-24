@@ -1,4 +1,3 @@
-
 // Initialize Cloud Firestore through Firebase
 var db = firebase.firestore();
 db.settings({timestampsInSnapshots: true});
@@ -18,22 +17,29 @@ const listar = () =>{
             <button class="btn btn-warning" onclick="editar('${post.id}','${post.data().post}')">Editar</button>
         </div>`
       });
-  });    
+  });
 }
+
 
 const guardar  = () => {
     let post = document.getElementById('txtPost').value;
-    db.collection("posts").add({
+    if(post.trim().length === 0){
+      alert('Debe ingresar un mensaje');
+      return;
+    }else{
+      db.collection("posts").add({
         post: post,
         userProfile: userProfile
-    })
-    .then(function(docRef) {
-        console.log("Document written with ID: ", docRef.id);
-        document.getElementById('txtPost').value = '';
       })
-      .catch(function(error) {
-        console.error("Error adding document: ", error);
-      });
+      .then(function(docRef) {
+          console.log("Document written with ID: ", docRef.id);
+          document.getElementById('txtPost').value = '';
+        })
+        .catch(function(error) {
+          console.error("Error adding document: ", error);
+        });
+    }
+
 }
 
   ///// BORRAR DOCUMENTOS
@@ -45,30 +51,26 @@ const guardar  = () => {
         }).catch(function(error) {
             console.error("Error removing document: ", error);
         });
-        
-    } else {
-        
     }
-  
   }
-  
+
   ///EDITAR DOCUMENTOS//
   function editar(id, post) {
     document.getElementById('txtPost').value = post;
     const btnPublicar = document.getElementById('btnPublicar');
     btnPublicar.innerHTML = 'Modificar';
-  
+
     btnPublicar.onclick = function() {
       var postReference = db.collection("posts").doc(id);
-  
+
       let txtPostValue = document.getElementById('txtPost').value;
-      
-      // TODO colocar alerta de confirmacion de actuaizar datos 
-      
+
+      // TODO colocar alerta de confirmacion de actuaizar datos
+
         //var txt;
         var r = confirm("Estas seguro de Editar la publicacion");
         if (r == true) {
-          
+
         postReference.update({
             post : txtPostValue
           })
@@ -79,14 +81,13 @@ const guardar  = () => {
               // The document probably doesn't exist.
               console.error("Error updating document: ", error);
           });
-            
+
         } else {
-            
+
         }
         btnPublicar.innerHTML = "Publicar";
         btnPublicar.onclick = guardar;
         document.getElementById('txtPost').value = '';
-  
     }
   }
 

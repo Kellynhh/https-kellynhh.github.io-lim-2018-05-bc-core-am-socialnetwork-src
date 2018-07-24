@@ -6,16 +6,23 @@ var config = {
   storageBucket: "socialnetwork-proyect.appspot.com",
   messagingSenderId: "1041163805568"
 };
+
 firebase.initializeApp(config);
 
 let userProfile = {};
 
 function register(){
+
+  console.log(name);
   let email = document.getElementById('email').value;
   let password = document.getElementById('password').value;
-  firebase.auth().createUserWithEmailAndPassword(email, password)
-    .then(()=> {
+  const promise = firebase.auth().
+  createUserWithEmailAndPassword(email, password)
+    .then(function (user){
+      let names = document.getElementById('name').value;
+      // return user.updateProfile({'displayName': names }); // verificar porque no lee
     verificar();
+
   }).catch((error) => {
   // Handle Errors here.
   let errorCode = error.code;
@@ -126,11 +133,11 @@ facebook.addEventListener('click', () => {
  });
 })
 
-
 let gmail = document.getElementById('gmail');
 gmail.addEventListener('click', ()=> {
   let provider = new firebase.auth.GoogleAuthProvider();
-  firebase.auth().signInWithPopup(provider).then((result)=> {
+  firebase.auth().signInWithPopup(provider)
+  .then((result)=> {
     var token = result.credential.accessToken;
     var user = result.user;
     console.log(user)
@@ -152,7 +159,7 @@ function guardaDatos(user){
     foto: user.photoURL,
     emailVerified: user.emailVerified
   }
-  firebase.database().ref('angie/' + user.uid)
+  firebase.database().ref('Users/' + user.uid)
   .set(usuario)
 
   userProfile = getUserProfile(user); //json
