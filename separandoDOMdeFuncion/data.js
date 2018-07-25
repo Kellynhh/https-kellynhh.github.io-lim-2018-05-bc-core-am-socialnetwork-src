@@ -31,8 +31,8 @@ window.onload = () => {
   });
 }
 
-const registerVal = (email, password) => {
-  firebase.auth().createUserWithEmailAndPassword(email, password)
+const registerVal = (name, lastName, email, password) => {
+  firebase.auth().createUserWithEmailAndPassword(name, lastName, email, password)
     .then((result) => {
       console.log(result.user);
     verificar();
