@@ -1,35 +1,9 @@
-/* #facebook, #gmail {
-   border-radius: 5px;
-   background: #ffffff;
-   cursor: pointer;
-   width: 80px;
-} */
-#wrap-preload{
-  position: fixed;
-  z-index: 10;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: #fff;
-  opacity: 1;
-  visibility: visible;
-  transition: opacity .5s ease,visibility .5 ease;
+.hiden {
+  display: none;
 }
-
-#wrap-preload.close{
-  opacity: 0;
-  visibility: hidden;
+.show{
+  display: block;
 }
-
-#wrap-preload > img.gif{
-  position: absolute;
-  top: 40%;
-  left:40%;
-  transform:translated3d(-50%,-50%,0);
-}
-
-
 .btn-social{
   width:50px;
 }
@@ -39,3 +13,18 @@
   font-size: 1em;
   color: #2e2e2e
 }
+
+.divPublicaciones {
+  display: inline-block;
+}
+
+.publicar {
+  height: 100px;
+  width: 500px;
+}
+
+.post {
+  width: 500px;
+}
+
+
