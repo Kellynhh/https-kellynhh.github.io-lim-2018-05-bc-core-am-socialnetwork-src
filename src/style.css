@@ -34,12 +34,8 @@
   width:50px;
 }
 
-#navbar img{
-
-   width: 15%;
+.test:after {
+  content: '\2807';
+  font-size: 1em;
+  color: #2e2e2e
 }
-.btn btn-primary{
-
-  background-color: yellow;
-}
-
