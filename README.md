@@ -24,18 +24,18 @@ Se realizo una reunion grupal con la finalidad de que cada integrante de este eq
 
 ![vista final interfaz pronosticada ]( https://scontent.flim10-1.fna.fbcdn.net/v/t1.15752-9/37912153_1589964464447974_2917343861359509504_n.jpg?_nc_cat=0&oh=0dadcc58987326ae1b34ea15faf810ff&oe=5C10D7B5 "Vista final pronosticada ")
 
-![Formulario de Logueo / Registro]( https://scontent.flim10-1.fna.fbcdn.net/v/t1.15752-9/37965975_1589964594447961_4868195909319524352_n.jpg?_nc_cat=0&oh=9db621fa14f1328f3a48d8879a9d4784&oe=5C100142"Logueo/ Registro")
+![Formulario de Logueo / Registro](https://scontent.flim10-1.fna.fbcdn.net/v/t1.15752-9/37965975_1589964594447961_4868195909319524352_n.jpg?_nc_cat=0&oh=9db621fa14f1328f3a48d8879a9d4784&oe=5C100142"Logueo/ Registro")
 
-![Vista Mobile interfaz]( https://scontent.flim10-1.fna.fbcdn.net/v/t1.15752-9/38008803_1589964667781287_7443262625586085888_n.jpg?_nc_cat=0&oh=4d76b5123dfc2fc881f24baeb5ec689d&oe=5C143976"Vista Mobile")
+![Vista Mobile interfaz](https://scontent.flim10-1.fna.fbcdn.net/v/t1.15752-9/38008803_1589964667781287_7443262625586085888_n.jpg?_nc_cat=0&oh=4d76b5123dfc2fc881f24baeb5ec689d&oe=5C143976"Vista Mobile")
 
 ###Prototipos de alta fidelidad aprobados###
 
 Una vez concretado nuestro modelo en baja fidelidad se procedio con el **Prototipo de alta fidelidad** el cual fue realizado con la herramienta de trabajo **Figma** nuestro resultado fue este:
-![vista final interfaz pronosticada ]( https://scontent.flim10-1.fna.fbcdn.net/v/t1.15752-9/37912153_1589964464447974_2917343861359509504_n.jpg?_nc_cat=0&oh=0dadcc58987326ae1b34ea15faf810ff&oe=5C10D7B5 "Vista final pronosticada ")
+![vista final interfaz pronosticada ]( pendiente "Vista final pronosticada ")
 
-![Formulario de Logueo / Registro]( https://scontent.flim10-1.fna.fbcdn.net/v/t1.15752-9/37965975_1589964594447961_4868195909319524352_n.jpg?_nc_cat=0&oh=9db621fa14f1328f3a48d8879a9d4784&oe=5C100142"Logueo/ Registro")
+![Formulario de Logueo / Registro]( pendiente"Logueo/ Registro")
 
-![Vista Mobile interfaz]( https://scontent.flim10-1.fna.fbcdn.net/v/t1.15752-9/38008803_1589964667781287_7443262625586085888_n.jpg?_nc_cat=0&oh=4d76b5123dfc2fc881f24baeb5ec689d&oe=5C143976"Vista Mobile")
+![Vista Mobile interfaz]( pendiente"Vista Mobile")
 
 Partiendo de nuestra planificacion y la aprobacion de nuestro prototipo, nuestro segundo paso fue estudiar como funciona **Firebase** lo  cual se convirtio en una herramienta fundamental para el desarrollo de la aplicacion, ayudandonos a crear la base de datos y enseñandonos a como manipularla, fue esta herramienta la base para el funcionamiento de almacenamiento de todo lo que sucede en la interfaz,
 nuestro primer resultado de eso fue crear nuestro primer formulario para almacenar los datos de nuestros subcriptores y su primera vista fue esta:
@@ -58,8 +58,6 @@ En esta segunda parte del proyecto ya mas emocionadas y cada vez mas enamoradas 
 
  ![Detectando fallas con el publico](https://scontent.flim10-1.fna.fbcdn.net/v/t1.15752-9/37958613_1589902544454166_6811932553679732736_n.jpg?_nc_cat=0&oh=0791015670b133fe07a0392400a77e4e&oe=5BD9FA11 "Detectando fallas")
 
- 
- ![Detectando fallas con el publico](https://scontent.flim10-1.fna.fbcdn.net/v/t1.15752-9/37907463_1589902607787493_1871031313419468800_n.jpg?_nc_cat=0&oh=180de9601775e21d8bef0aea50036465&oe=5BDCDE84 "Detectando fallas")
 
  Finiquitado el estudio y valorado el feedback agregamos los cambios necesarios a la plicacion.
 
