@@ -1,15 +1,12 @@
-
 // Initialize Cloud Firestore through Firebase
 var db = firebase.firestore();
 db.settings({timestampsInSnapshots: true});
 
 const listar = (user) =>{
   //LEER DOCUMENTOS
-  let divPosts = document.getElementById("divPosts");
   let divPosts1 = document.getElementById("divPosts1");
 
   db.collection("posts").onSnapshot((postSnapshot) => {
-    divPosts.innerHTML='';
     divPosts1.innerHTML='';
 
     postSnapshot.forEach((post) => {
@@ -17,53 +14,10 @@ const listar = (user) =>{
           console.log(`${post.data().userProfile.uid}`);
           console.log(user);
         
-          divPosts.innerHTML += `<div class="posts">
-          <div class="col-md-6 mt-5" >
-              <div class="card">
-                  <div class="card-block">
-                     <section class="post-heading">
-                          <div class="row">
-                              <div class="col-md-11">
-                                  <div class="media">
-                                    <div class="media-left" style="max-width:100%;width:auto;height:auto;">
-                                      <a href="#">
-                                        <img class="media-object photo-profile" alt="fotoUsuario" style="width:40px; height:auto; border-radius:50px" src="${post.data().userProfile.foto}">
-                                      </a>
-                                    </div>
-                                    <div class="media-body">
-                                      <a href="#" class="anchor-username"><h4 class="media-heading">${post.data().userProfile.nombre}</h4></a> 
-                                    </div>
-                                  </div>
-                              </div>
-                          </div>             
-                     </section>
-                     <section class="post-body">
-                     <div id="divPost${post.id}"  >${post.data().post}</div>
-                     <textarea id="txtArea${post.id}" style="display:none; width:355px; heigth:30px">${post.data().post}</textarea>
-                     </section>
-                     <section class="post-footer">
-                         <hr>
-                         <div class="post-footer-option container">
-                            
-                                  <a href="#"><i style="heigth:5px" id="clickLikes${post.id}" class="fa fa-heart-o" onclick="countLikes('${post.id}', event)"></i></a></li><b id="count${post.id}">0</b>                          
-                                  <div id="buttons1" class="hiden">
-                                  <button id="btnEditar${post.id}" type="button" class="btn btn-primary btn-sm" onClick="editarPost('${post.id}', '${post.data().post}')" >Editar</button>
-                                  <button id="btnGuardar${post.id}" type="button" class="btn btn-primary btn-sm" onClick="guardarPost('${post.id}', '${post.data().post}')" >Guardar</button>
-                                  <button id="btnEliminar${post.id}"type="button" class="btn btn-primary btn-sm" onClick="eliminarPost('${post.id}')">Eliminar</button>
-                                  </div>
-                         </div>
-                     </section>
-                  </div>
-              </div>   
-          </div>
-      </div>   
-          `
-        
-
         if(`${post.data().userProfile.uid}`==user){
 
             divPosts1.innerHTML += `<div class="posts">
-            <div class="col-md-6 mt-5" >
+            <div>
                 <div class="card">
                     <div class="card-block">
                        <section class="post-heading">
@@ -100,10 +54,74 @@ const listar = (user) =>{
             </div>
         </div>   
             `
-            
         }else{
             divPosts1.innerHTML += `<div class="posts">
-            <div class="col-md-6 mt-5" >
+            <div >
+                <div class="card">
+                    <div class="card-block">
+                       <section class="post-heading">
+                            <div class="row">
+                                <div class="col-md-11">
+                                    <div class="media">
+                                      <div class="media-left" style="max-width:100%;width:auto;height:auto;">
+                                        <a href="#">
+                                          <img class="media-object photo-profile" alt="fotoUsuario" style="width:40px; height:auto; border-radius:50px" src="${post.data().userProfile.foto}">
+                                        </a>
+                                      </div>
+                                      <div class="media-body">
+                                        <a class="anchor-username"><h4 class="media-heading">${post.data().userProfile.nombre}</h4></a> 
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>             
+                       </section>
+                       <section class="post-body">
+                       <div id="divPost${post.id}"  >${post.data().post}</div>
+                       <textarea id="txtArea${post.id}" style="display:none; width:355px; heigth:30px">${post.data().post}</textarea>
+                       </section>
+                       <section class="post-footer">
+                           <hr>
+                           <div class="post-footer-option container">
+                                    <a><i style="heigth:5px" id="clickLikes${post.id}" class="fa fa-heart-o" onclick="countLikes('${post.id}', event)"></i></a></li><b id="count${post.id}">0</b>                          
+                                    <button id="btnEditar${post.id}" type="button" class="btn btn-primary btn-sm hiden" onClick="editarPost('${post.id}', '${post.data().post}')" >Editar</button>
+                                    <button id="btnGuardar${post.id}" type="button" class="btn btn-primary btn-sm hiden" onClick="guardarPost('${post.id}', '${post.data().post}')" >Guardar</button>
+                                    <button id="btnEliminar${post.id}"type="button" class="btn btn-primary btn-sm hiden" onClick="eliminarPost('${post.id}')">Eliminar</button>
+                           </div>
+    
+                       </section>
+                    </div>
+                </div>   
+            </div>
+        </div>   
+            `
+
+        }
+
+        
+        
+        });
+    });    
+    
+
+
+
+     
+}
+
+const listarSinRegistro = () =>{
+    //LEER DOCUMENTOS
+    let divPosts = document.getElementById("divPosts");
+    
+  
+    db.collection("posts").onSnapshot((postSnapshot) => {
+      divPosts.innerHTML='';
+    
+  
+      postSnapshot.forEach((post) => {
+        
+          
+            divPosts.innerHTML += `<div class="posts">
+            <div >
                 <div class="card">
                     <div class="card-block">
                        <section class="post-heading">
@@ -129,10 +147,13 @@ const listar = (user) =>{
                        <section class="post-footer">
                            <hr>
                            <div class="post-footer-option container">
+                              
                                     <a href="#"><i style="heigth:5px" id="clickLikes${post.id}" class="fa fa-heart-o" onclick="countLikes('${post.id}', event)"></i></a></li><b id="count${post.id}">0</b>                          
-                                    <button id="btnEditar${post.id}" type="button" class="btn btn-primary btn-sm hiden" onClick="editarPost('${post.id}', '${post.data().post}')" >Editar</button>
-                                    <button id="btnGuardar${post.id}" type="button" class="btn btn-primary btn-sm hiden" onClick="guardarPost('${post.id}', '${post.data().post}')" >Guardar</button>
-                                    <button id="btnEliminar${post.id}"type="button" class="btn btn-primary btn-sm hiden" onClick="eliminarPost('${post.id}')">Eliminar</button>
+                                    <div id="buttons1" class="hiden">
+                                    <button id="btnEditar${post.id}" type="button" class="btn btn-primary btn-sm" onClick="editarPost('${post.id}', '${post.data().post}')" >Editar</button>
+                                    <button id="btnGuardar${post.id}" type="button" class="btn btn-primary btn-sm" onClick="guardarPost('${post.id}', '${post.data().post}')" >Guardar</button>
+                                    <button id="btnEliminar${post.id}"type="button" class="btn btn-primary btn-sm" onClick="eliminarPost('${post.id}')">Eliminar</button>
+                                    </div>
                            </div>
                        </section>
                     </div>
@@ -140,19 +161,16 @@ const listar = (user) =>{
             </div>
         </div>   
             `
-
-        }
-
-        
-        
-        });
-    });    
-    
-
-
-
+          
+  
      
-}
+          });
+      });    
+   
+       
+  }
+  
+
 
 const editarPost = (id, post) => {
   document.getElementById("divPost"+id).style.display = "none";
@@ -229,3 +247,5 @@ const btnPublicar = document.getElementById("btnPublicar");
 btnPublicar.addEventListener("click", guardar);
 
 
+
+listarSinRegistro();

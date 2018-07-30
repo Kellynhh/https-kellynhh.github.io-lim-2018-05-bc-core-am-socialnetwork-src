@@ -16,7 +16,7 @@ const closeSesion = document.getElementById('close');
 const editar = document.getElementById('buttons'); 
 const divPosts1 = document.getElementById('divPosts1'); 
 const divPosts = document.getElementById('divPosts');
-const modal = document.getElementById('exampleModal')
+
 
 window.onload = () => {
   firebase.auth().onAuthStateChanged((user) => {
@@ -32,6 +32,8 @@ window.onload = () => {
         // register.classList.remove("hiden");
         // close.classList.add("hiden");
         //editar.classList.add('visible');
+        closeSesion.classList.remove('hiden');
+        closeSesion.classList.add('show');
         editar.classList.remove('show');
         editar.classList.add('hiden');
         divPosts1.classList.remove('hiden');
@@ -52,6 +54,8 @@ window.onload = () => {
     }
   });
 }
+
+
 
 register.addEventListener('click', () => {
   if(validadorNombre(name.value) === false) {
@@ -81,7 +85,8 @@ facebook.addEventListener('click', () => {
 
 closeSesion.addEventListener('click', () => {
   close();
-        
+        closeSesion.classList.remove('show');
+        closeSesion.classList.add('hiden');
         editar.classList.add('show');
         editar.classList.remove('hiden');
         divPosts1.classList.remove('show');

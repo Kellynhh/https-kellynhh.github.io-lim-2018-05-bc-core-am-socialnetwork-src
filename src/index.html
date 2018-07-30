@@ -9,43 +9,6 @@
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
   </head>  
-  <br>
-  <header>   
-    <!--Creando carrusel de imagenes 
-    <div id="carouselExampleFade" class="carrusel"  data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <picture>
-                <source media="(min-width: 650px)" srcset="../imagenes/mundo.jpg">
-                <source media="(min-width: 465px)" srcset="../imagenes/mundo.jpg">
-                <img class="d-block w-100" src="../imagenes/gonza.jpg" alt= "First slide">
-            </picture>
-          </div>
-          <div class="carousel-item">
-            <picture>
-              <source media="(min-width: 650px)" srcset="../imagenes/ciudad.jpg">
-              <source media="(min-width: 465px)" srcset="../imagenes/ciudadjpg">
-            <img class="d-block w-100" src="../imagenes/ciudad.jpg" alt="Second slide">
-          </picture>
-          </div>
-          <div class="carousel-item">
-            <picture>
-              <source media="(min-width: 650px)" srcset="../imagenes/renovable2.png">
-              <source media="(min-width: 465px)" srcset="../imagenes/renovable2.png">
-            <img class="d-block w-100" src="../imagenes/renovable2.png" alt="Third slide">
-          </picture>
-          </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>-->
-  </header>
   <body>
 
     <div class="contenido">
@@ -57,7 +20,7 @@
            <button class="btn btn-outline-success my-2 my-sm-0 ml-2" data-toggle="modal" data-target="#exampleModal">Registrate</button>
            <button class="btn btn-outline-success my-2 my-sm-0 ml-2" data-toggle="modal" data-target="#exampleModal1">Logueate</button>
           </div>
-          <button id="close" class="btn btn-outline-success my-2 my-sm-0 ml-2" class="hiden" >Cerrar sesión</button>
+          <button id="close" class="btn btn-outline-success my-2 my-sm-0 ml-2 hiden"  >Cerrar sesión</button>
 
         </div>
       </nav>
@@ -137,11 +100,19 @@
       </a>
     </div>
 
-    <div class="container">
+  <div class="row">
+    <div  class="card col-3 d-none d-lg-block" style="width: 18rem;">
+            <img class="card-img-top" src="../imagenes/noticia1.1.jpg" alt="Card image cap">
+            <div class="card-body">
+              <p><h6>Energia Eolica</h6></p>
+              <p class="card-text">La energía eólica es la energía obtenida a partir del viento, es decir, la energía cinética generada por efecto de las corrientes de aire, y que es convertida en otras formas útiles de energía para las actividades humanas.</p>
+            </div>
+    </div>
+    <div class="container col-6">
         <br>
-        <div id="divPostsArea" class="pubicar">
+        <div id="divPostsArea">
             <div class="row">
-              <h2><strong>Ideas para compartir</strong></h2>
+              <h2><strong>Comentanos!</strong></h2>
             </div>
             <div class="row">
               <textarea id="txtAreaPost" class="publicar" placeholder="¿Que ideas tienes?"></textarea>
@@ -149,17 +120,30 @@
             <div class="row">
               <button id= "btnPublicar" type="button" class="btn btn-primary" >Publicar</button>
             </div>
+                        
         </div>
-        <div id="divPosts" class="show">
-        </div>
-        <div id="divPosts1" class="hiden" >
-          </div>
     </div>
+  </div>
+  <br>
+  <div class="row">
+      <div class="card col-3 d-none d-lg-block" style="width: 18rem;">
+              <img class="card-img-top" src="../imagenes/biomasa.jpg" alt="Card image cap">
+              <div class="card-body">
+                <h6>Biomasa</h6>
+                <p class="card-text">Cantidad de productos obtenidos por fotosíntesis, susceptibles de ser transformados en combustible útil para el hombre y expresada en unidades de superficie y de volumen..</p>
+              </div>
+      </div>
+      <div class="container col-6">
+          <br>
 
-
-    </div>
-
-
+              <div id="divPosts" class="show"></div>
+              
+              <div id="divPosts1" class="hiden" ></div>
+                
+      </div>
+   </div>
+    
+  
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
